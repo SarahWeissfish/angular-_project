@@ -1,0 +1,71 @@
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\appsettings.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.exe
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.deps.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.runtimeconfig.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.pdb
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.serverAngular.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.build.serverAngular.props
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.serverAngular.props
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.serverAngular.props
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\scopedcss\bundle\serverAngular.styles.css
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.csproj.CopyComplete
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\refint\serverAngular.dll
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.pdb
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\serverAngular\serverAngular\obj\Debug\net6.0\ref\serverAngular.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\appsettings.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.exe
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.deps.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.runtimeconfig.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\serverAngular.pdb
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.serverAngular.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.build.serverAngular.props
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.serverAngular.props
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.serverAngular.props
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\scopedcss\bundle\serverAngular.styles.css
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.csproj.CopyComplete
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\refint\serverAngular.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.pdb
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\ref\serverAngular.dll
+C:\Users\ASUS\Desktop\פרויקט אנגולר\serverAngular\serverAngular\obj\Debug\net6.0\serverAngular.sourcelink.json
