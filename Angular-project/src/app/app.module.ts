@@ -9,6 +9,9 @@ import { UserModule } from './modules/user/user.module';
 import { HomeComponent } from './home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,8 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    
   ],
   imports: [
+    MatChipsModule,
+    MatButtonModule,
     BrowserModule,
     CourseModule,
+    MatSlideToggleModule,
     UserModule,
     AppRoutingModule,
     FormsModule,ButtonModule, BrowserAnimationsModule

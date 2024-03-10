@@ -6,15 +6,12 @@
 }
 .header{
     display: flex;
-    margin: 0;
-    padding: 0;
     list-style-type: none;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: flex-start;
+    // align-items: flex-start;
     flex-direction: row-reverse;
 }
 .h{
+    
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -23,3 +20,6 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.nextWeek{
+background-color: black;
+}

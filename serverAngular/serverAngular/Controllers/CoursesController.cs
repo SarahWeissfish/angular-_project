@@ -17,6 +17,10 @@ namespace serverAngular.Controllers
            new Course(2,"PowerPoint",2,15,"2/3/2024" ,new string[]{"הרכת סביבת העבודה ","מעברים ","הנפשות "},1 ,4,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOZWVOyNdcuFqRQIqLDO0fhtjzZXi9TOs0kw&usqp=CAU "),
            new Course(3,"Word",2,15,"9/6/2024" ,new string[]{"הכרת סביבת העבודה ","עיצוב מסמך ","Fonts"},2 ,2,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxWoa2MsieGH6Ts1twrAxnKTd1yak3sPXKiw&usqp=CAU  "),
            new Course(4,"Poto",2,15,"2/10/2024" ,new string[]{"יסודות הצילום ","קומפוזיציה"},2 ,4,"https://www.photolight.co.il/wp-content/uploads/2021/10/Photo_1633241227-1024x651.jpg"),
+           new Course(1,"English",1,50,"2/3/2024" ,new string[]{"word 1","word 2"},1 ,2,"https://www.limudonline.co.il/StaticFiles/Courses/0404202017105106.jpg"),
+           new Course(2,"PowerPoint",2,15,"2/3/2024" ,new string[]{"הרכת סביבת העבודה ","מעברים ","הנפשות "},1 ,4,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR25KyRvlU8I9FxfIv5TUCHVVsrlswJprzVmQ&usqp=CAU"),
+           new Course(3,"Word",2,15,"9/6/2024" ,new string[]{"הכרת סביבת העבודה ","עיצוב מסמך ","Fonts"},2 ,2,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxWoa2MsieGH6Ts1twrAxnKTd1yak3sPXKiw&usqp=CAU  "),
+           new Course(4,"Poto",2,15,"2/10/2024" ,new string[]{"יסודות הצילום ","קומפוזיציה"},2 ,4,"https://www.photolight.co.il/wp-content/uploads/2021/10/Photo_1633241227-1024x651.jpg"),
           
            //new Course{code=3,name="Poto",category=3,countLesson=50,date=new DateOnly(2024,3,25) ,sillibos=new string[]{"aaa","sss:"},wayLearning=1 ,codeLecturer=2,image="https//:foeoksddf.afa"},
            //new Course{code=4,name="PowerPoint",category=2,countLesson=25,date=new DateOnly(2024,5,7) ,sillibos=new string[]{"aaa","sss:"},wayLearning=2 ,codeLecturer=4,image="https//:fogggeoksddf.afa"},

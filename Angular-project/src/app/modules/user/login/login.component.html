@@ -1,8 +1,23 @@
 <div class="form">
-    <p>login works!</p>
     <div *ngIf="!u?.code">
         <form [formGroup]="loginForm" class="row g-1">
-            <div class="form-group" class="col-md-6">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" formControlName="userName"  placeholder="שם משתמש">
+                <label for="floatingInput">שם משתמש</label>
+                <ng-container *ngIf="loginForm.controls['userName'].errors&& !loginForm.controls['userName'].pristine">
+                    <div class="alert alert-danger"> not name valid</div>
+                </ng-container>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="סיסמא" formControlName="password">
+                <label for="floatingPassword">סיסמא</label>
+                <ng-container *ngIf="loginForm.controls['password'].errors&& !loginForm.controls['password'].pristine">
+                    <div class="alert alert-danger">הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12
+                        תווים</div>
+                </ng-container>
+              </div>
+
+            <!-- <div class="form-group" class="col-md-6">
                 <label for="name">שם משתמש</label>
                 <input type="text" class="form-control" formControlName="userName" [value]="">
                 <ng-container *ngIf="loginForm.controls['userName'].errors&& !loginForm.controls['userName'].pristine">
@@ -16,8 +31,8 @@
                     <div class="alert alert-danger">הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12
                         תווים</div>
                 </ng-container>
-            </div>
-            <button class="save" [disabled]="!loginForm.valid" (click)="login()">שלח</button>
+            </div> -->
+            <button mat-fab extended color="primary" class="save" [disabled]="!loginForm.valid" (click)="login()">התחברות</button>
         </form>
     </div>
     <ng-container *ngIf="u?.code">

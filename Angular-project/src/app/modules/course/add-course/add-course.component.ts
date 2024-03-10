@@ -5,6 +5,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from '../categoty.model';
 import { CourseService } from '../course.service';
 import { Course } from '../course.model';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-add-course',
@@ -12,8 +15,9 @@ import { Course } from '../course.model';
   styleUrls: ['./add-course.component.scss']
 })
 export class AddCourseComponent {
+  user = JSON.parse(sessionStorage.getItem('userData'))?.lecturer || false
   new: boolean;
-  sillibos:string[];
+  sillibos: string[];
   private _course: Course;
   public get course(): Course {
     return this._course;
@@ -22,11 +26,12 @@ export class AddCourseComponent {
     this._course = c;
     this.courseForm = new FormGroup({
       "courseName": new FormControl(this.course?.name, [Validators.required]),
-      "countLesson": new FormControl(this.course?.countLesson ,),
+      "countLesson": new FormControl(this.course?.countLesson, [Validators.required]),
       "image": new FormControl(this.course?.image, [Validators.minLength(3)]),
-      "wayLearning": new FormControl(this.course?.wayLearning),
+      "wayLearning": new FormControl(this.course?.wayLearning, [Validators.required]),
       "date": new FormControl(this.course?.date, [Validators.required]),
       "category": new FormControl(this.course?.category,),
+      "sillibos": new FormControl(this.sillibos, [Validators.minLength(3)])
     })
   }
 
@@ -42,7 +47,7 @@ export class AddCourseComponent {
         this._courseService.getCourseFromServer(+p.get("id")).subscribe(data => {
           this.course = data;
           this.new = false;
-          this.sillibos=this.course.sillibos;
+          this.sillibos = this.course.sillibos;
           this.sillibos.push("");
         })
       }
@@ -50,8 +55,8 @@ export class AddCourseComponent {
         this.course = new Course();
         this.new = true;
         console.log(this.course)
-        this.sillibos=[""]
-        this.course.codeLecturer=JSON.parse(sessionStorage.getItem('userData')).code;
+        this.sillibos = [""]
+        this.course.codeLecturer = JSON.parse(sessionStorage.getItem('userData'))?.code;
         //this.sillibos.push("");
       }
     })
@@ -59,16 +64,10 @@ export class AddCourseComponent {
     this._courseService.getCategoriesFromServer().subscribe(x => {
       this.categories = x;
     })
-   
+
     console.log(this.sillibos)
   }
-  // save() {
-  //   this.fill()
-  //   this.course.codeLecturer = JSON.parse(sessionStorage.getItem('userData')).code;
-  //   this._courseService.saveCourseToServer(this.course).subscribe(x => {
-  //     alert("the course add")
-  //   })
-  // }
+
   fillCourse() {
     this.course.name = this.courseForm.controls["courseName"].value;
     this.course.countLesson = this.courseForm.controls["countLesson"].value;
@@ -76,9 +75,9 @@ export class AddCourseComponent {
     this.course.wayLearning = this.courseForm.controls["wayLearning"].value;
     this.course.date = this.courseForm.controls["date"].value;
     this.course.category = this.courseForm.controls["category"].value;
-    // this.sillibos.pop();
+    // this.course.date.toDateString();
     console.log(this.sillibos)
-    this.sillibos=this.sillibos
+    this.sillibos = this.sillibos
     console.log(this.course.sillibos)
   }
   // update() {
@@ -102,9 +101,12 @@ export class AddCourseComponent {
     }
   }
   cancle() {
-    this._router.navigate(["courseDetails", +this.course.code])
+    if (!this.new)
+      this._router.navigate(["courseDetails", +this.course.code])
+    else
+      this._router.navigate(["allCourses"])
   }
-  deleteCourse(){
+  deleteCourse() {
     this._courseService.deleteCourseFromServer(this.course.code).subscribe(x => {
       alert("the course deleted")
       this._router.navigate(["allCourses"]);

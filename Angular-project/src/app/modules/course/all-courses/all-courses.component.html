@@ -1,33 +1,44 @@
-<p>all-courses works!</p>
-<div class="h">
+
+<div class="h ">
     <div class="header">
         <input type="text" placeholder="enter name of course" [(ngModel)]="courseName" (input)="getCoursesByName()" />
-        <div>
-            <label>דרך לימוד:</label>
-            <br>
-            <input type="radio" name="wayLearning" value="1" onchange="changeValue()" />frontal
-            <input type="radio" name="wayLearning" value="2" onchange="changeValue()" />ZOOM
+        <div >
+            <!-- <label>דרך לימוד:</label> -->
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineRadio1">frontal</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+                    (click)="changeValue(1)">
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineRadio2">ZOOM</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+                    (click)="changeValue(2)">
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineRadio2">הכל</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option3"
+                    (click)="changeValue(3)">
+            </div>
         </div>
         <div>
-            <label>קטגוריה: </label><br/>
-            <select onchange="changeValue()">
+            <select class="form-select" aria-label="Default select example" (change)="changeValue2($event)">
+                <option [value]="0"> קטגוריה</option>
                 <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
             </select>
         </div>
     </div>
 </div>
-<div>
-    <div *ngFor=" let i of courses" [ngClass]="{'list-group-item-danger': i.date}">
+<div class="courses">
+    <div *ngFor=" let i of courses" [ngClass]="{'list-group-item-success':i.date<=nextWeek}">
         <div class="card" style="width: 18rem;">
 
-            <img src="{{ i.image }}" class="card-img-top" />
+            <img src="{{ i.image }}" class="card-img-top" style=" height: 250px;" />
 
             <div class="card-body">
-                <h5 class="card-title">{{i.name}}</h5>
+                <h1 class="card-title">{{i.name}}</h1>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p>
-                <button class="btn btn-outline-secondary" (click)="showDetails2(i)">show Details</button>
-
+                <button mat-fab extended color="primary" (click)="showDetails2(i)">show Details</button>
             </div>
         </div>
     </div>

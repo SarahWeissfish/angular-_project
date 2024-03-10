@@ -15,9 +15,9 @@ export class RegisterComponent {
   constructor(private _usrService:UserService , private _router: Router, private _act: ActivatedRoute){
     this.registerForm=new FormGroup({
       "userName":new FormControl(sessionStorage.getItem('name'),[Validators.required,Validators.minLength(3)]),
-      "password":new FormControl(this.u?.password,[Validators.required,Validators.minLength(3),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}")]),
+      "password":new FormControl(this.u?.password,[Validators.required,Validators.minLength(3),Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$")]),
       "address":new FormControl("",[Validators.required,Validators.minLength(3)]),
-      "email":new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-z0-9._%+-]+@gmail.com")]),
+      "email":new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")]),
     })
   }
   register()

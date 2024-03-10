@@ -1,36 +1,65 @@
-<p>register works!</p>
+
 <div class="form">
     <form [formGroup]="registerForm" class="row g-2">
-        <div class="form-group"  class="col-md-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" formControlName="userName"  placeholder="שם משתמש">
+            <label for="floatingInput">שם משתמש</label>
+            <ng-container *ngIf="registerForm.controls['userName'].errors&& !registerForm.controls['userName'].pristine">
+                <div class="alert alert-danger"> not name valid</div>
+            </ng-container>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="סיסמא" formControlName="password">
+            <label for="floatingPassword">סיסמא</label>
+            <ng-container *ngIf="registerForm.controls['password'].errors&& !registerForm.controls['password'].pristine">
+                <div class="alert alert-danger">הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12
+                    תווים</div>
+            </ng-container>
+          </div>
+        <!-- <div class="form-group"  class="col-md-6">
             <label for="name">שם משתמש</label>
             <input type="text" class="form-control" formControlName="userName" [value]="">
             <ng-container *ngIf="registerForm.controls['userName'].errors&& !registerForm.controls['userName'].pristine">
                 <div class="alert alert-danger"> not name valid</div>
             </ng-container>
-        </div>
-        <div class="form-group"  class="col-md-6">
+        </div> -->
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" formControlName="address"  placeholder="כתובת">
+            <label for="floatingInput">כתובת</label>
+            <ng-container *ngIf="registerForm.controls['address'].errors&& !registerForm.controls['address'].pristine">
+                <div class="alert alert-danger"> כתובת לא חוקית לפחות 3 תווים</div>
+            </ng-container>
+          </div>
+        <!-- <div class="form-group"  class="col-md-6">
             <label>כתובת</label>
             <input type="text" class="form-control" formControlName="address">
             <ng-container *ngIf="registerForm.controls['address'].errors&& !registerForm.controls['address'].pristine">
                 <div class="alert alert-danger"> not address valid</div>
             </ng-container>
-        </div>
-        <div class="form-group" class="col-6">
+        </div> -->
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" formControlName="email"  placeholder="Email@gmail.com">
+            <label for="floatingInput">Email@gmail.com</label>
+            <ng-container *ngIf="registerForm.controls['email'].errors&& !registerForm.controls['email'].pristine">
+                <div class="alert alert-danger"> כתובת מייל לא חוקית</div>
+            </ng-container>
+          </div>
+        <!-- <div class="form-group" class="col-6">
             <label>מייל</label>
             <input type="text" class="form-control"  formControlName="email">
             <ng-container *ngIf="registerForm.controls['email'].errors&& !registerForm.controls['email'].pristine">
                 <div class="alert alert-danger"> not email valid</div>
             </ng-container>
-        </div>
-        <div class="form-group" class="col-6">
+        </div> -->
+        <!-- <div class="form-group" class="col-6">
             <label>סיסמא</label>
             <input type="password" class="form-control"   formControlName="password">
             <ng-container *ngIf="registerForm.controls['password'].errors&& !registerForm.controls['password'].pristine">
                 <div class="alert alert-danger"> הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12 תווים</div>
             </ng-container>
-        </div>
+        </div> -->
 
-        <button class="save" class="col-2" [disabled]="!registerForm.valid" (click)="register()">שלח</button>
+        <button mat-fab extended color="primary" class="save" class="col-2" [disabled]="!registerForm.valid" (click)="register()">הרשמה</button>
     </form>
 
 

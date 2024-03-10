@@ -12,11 +12,11 @@ export class Course{
         this.name=undefined
         this.category=1;
         this.countLesson=undefined;
-        this.date=undefined;
+        this.date=new Date();
         this.sillibos=[]
         this.wayLearning=Type.ZOOM;
         this.codeLecturer=undefined;
-        this.image=undefined
+        this.image="";
 
     }
 }

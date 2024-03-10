@@ -1,34 +1,34 @@
-<div *ngIf="course">
-    name:{{course.name}}
+<div *ngIf="course" style="direction: rtl;">
+  <h1>{{course.name}}</h1>
     <br />
     <img src="{{ course.image }}" [ngStyle]="{ 'width.px': 350, 'height.rem': 16 }" />
     <br />
     <div *ngIf="category">
-        category:{{category.name}}
+        קטגוריה:{{category.name}}
         <!-- <img src="{{ category.iconRouting }}" [ngStyle]="{ 'width.px': 30, 'height.px': 30 }" /> -->
     </div>
-    countLesson:{{course.countLesson}}
+    מס' שיעורים:{{course.countLesson}}
     <br />
-    <label>wayLearning</label>
+    <label>דרך לימוד:</label>
     <div [ngSwitch]="course.wayLearning">
         <p *ngSwitchCase="1">frontal </p>
         <p *ngSwitchCase="2">ZOOM</p>
     </div>
     <br />
-    <label>sillibos</label>
+    <label>סיליבוס</label>
     <ul *ngFor="let i of course.sillibos">
         <li>{{i}}</li>
     </ul>
     <ng-container *ngIf="lecturer">
-        <label>lecturer:</label>
+        <label>מרצה:</label>
         <div>
-            <label>name:</label>
+            <label>שם:</label>
             {{lecturer.name}}
             <label>email:</label>
             {{lecturer.email}}
         </div>
     </ng-container>
     <ng-container *ngIf="lecturer?.code==userId">
-        <button class="btn btn-outline-secondary" routerLink="/addCourse/{{course.code}}">edit course</button>
+        <button mat-fab extended color="primary" routerLink="/addCourse/{{course.code}}">עריכה</button>
     </ng-container>
 </div>

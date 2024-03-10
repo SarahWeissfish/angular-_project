@@ -1,51 +1,55 @@
-<p>add-course works!</p>
-<div>
-    <label>סיליבוס</label>
+
+<div *ngIf="user" style="direction: rtl;">
+    <label for="sillibos">סיליבוס</label>
     <div *ngFor="let item of sillibos; let i = index">
-        <input type="text" [(ngModel)]="sillibos[i]" [value]="item">
+        <input type="text" name="sillibos" [(ngModel)]="sillibos[i]" [value]="item">
     </div>
-    <button (click)="sillibos.push('')">+</button>
+    <br/>
+    <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon" (click)="sillibos.push('')">
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
     <form [formGroup]="courseForm">
-        <ng-container *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').touched"
+        <ng-container *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').pristine"
             class="alert alert-danger">
-            <div class="alert alert-danger"> countLesson invalid</div>
+            <div class="alert alert-danger"> courseName invalid</div>
         </ng-container>
         <div class="form-group">
-            <label>שם קורס</label>
-            <input type="text" placeholder="הכנס שם קורס" class="form-control" formControlName="courseName">
-            <div *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').touched"
+            <label for="floatingInput">שם קורס</label>
+            <input type="text" placeholder="הכנס שם קורס" id="floatingInput" class="form-control" formControlName="courseName">
+            <div *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').pristine"
                 class="alert alert-danger">
                 שם הקורס אינו תקין
             </div>
         </div>
         <div class="form-group">
-            <label for="course">קטגוריה: </label>
-            <select id="route" formControlName="category">
+            <label for="floatingInput">קטגוריה: </label>
+            <select  class="form-select" id="floatingInput" aria-label="Default select example" id="route" formControlName="category">
                 <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
             </select>
-
         </div>
         <div class="form-group">
-            <label>כמות שיעורים</label>
-            <input type="number" placeholder="הכנס כמות שיעורים" class="form-control" formControlName="countLesson">
+            <label for="floatingInput">כמות שיעורים</label>
+            <input type="number" id="floatingInput" placeholder="הכנס כמות שיעורים" class="form-control" formControlName="countLesson">
             <ng-container
                 *ngIf="courseForm.controls['countLesson'].errors&& !courseForm.controls['countLesson'].pristine">
                 <div class="alert alert-danger"> countLesson invalid</div>
             </ng-container>
         </div>
         <div class="form-group">
-            <label>קישור לתמונה</label>
-            <input type="text" placeholder="הכנס URL של תמונה" class="form-control" formControlName="image">
+            <label for="floatingInput">קישור לתמונה</label>
+            <input type="text"  id="floatingInput" placeholder="הכנס URL של תמונה" class="form-control" formControlName="image">
             <ng-container *ngIf="courseForm.controls['image'].errors&& !courseForm.controls['image'].pristine">
                 <div class="alert alert-danger"> not image valid</div>
             </ng-container>
         </div>
         <div class="form-control">
-            <label for="wayLearning">דרך לימוד:</label>
+            <label for="floatingInput">דרך לימוד:</label>
             <br>
-            <input type="radio" name="wayLearning" formControlName="wayLearning" value="1" />frontal
+            <input type="radio" id="floatingInput" name="wayLearning" formControlName="wayLearning" value="1" />frontal
             <br>
-            <input type="radio" name="wayLearning" formControlName="wayLearning" value="2" />ZOOM
+            <input type="radio" id="floatingInput" name="wayLearning" formControlName="wayLearning" value="2" />ZOOM
             <br>
         </div>
         <!-- <div class="form-control">
@@ -55,21 +59,19 @@
                 <input type="text" [(ngModel)]="sillibos[j]" [value]="i">
             </div>
         </div> -->
-
         <div class="form-group">
-            <label>תאריך פתיחת קורס:</label>
-            <input type="text" placeholder="01/01/2025" class="form-control" formControlName="date">
+            <label for="floatingInput">תאריך פתיחת קורס:</label>
+            <input type="date" id="floatingInput" placeholder="01/01/2025" class="form-control" formControlName="date">
             <ng-container *ngIf="courseForm.controls['date'].errors&& !courseForm.controls['date'].pristine">
                 <div class="alert alert-danger"> הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12
                     תווים</div>
             </ng-container>
         </div>
-
-        <button class="save" (click)="cancle()">בטל</button>
-        <button *ngIf="!new" class="save" (click)="deleteCourse()">מחיקת קורס</button>
-        <!-- <button *ngIf="!new" class="save" [disabled]="!courseForm.valid" (click)="update()">עדכן שינויים</button>
-        <button *ngIf="new" class="save" [disabled]="!courseForm.valid" (click)="save()">שלח</button> -->
-        <button class="save" [disabled]="!courseForm.valid" (click)="saveOrUpdateCourse()">{{ new ? 'שלח' : 'עדכן'
-            }}</button>
+        <button mat-fab extended color="primary" class="save" (click)="cancle()">בטל</button>
+        <button mat-fab extended color="primary"*ngIf="!new" class="save" (click)="deleteCourse()">מחיקת קורס</button>
+        <button mat-fab extended color="primary" class="save" [disabled]="!courseForm.valid" (click)="saveOrUpdateCourse()">{{ new ? 'הוספה' : 'עדכן'}}</button>
     </form>
 </div>
+<ng-container  *ngIf="!user">
+<h1>        אינך ברמת מרצה :(</h1>
+</ng-container>

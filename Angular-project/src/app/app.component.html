@@ -1,23 +1,37 @@
 <div class="h">
   <ul class="header">
-    <li class="li">
-      <a routerLink="/register">הרשמה</a>
+    <!-- <li>
+      <a mat-button color="primary" routerLink="/register">הרשמה</a>
     </li>
-    <li class="li">
-      <a routerLink="/login">התחברות</a>
+    <li>
+      <a mat-button color="primary" routerLink="/login">התחברות</a>
     </li>
-    <li class="li">
-      <a routerLink="/addCourse">הוספת קורס</a>
+    <li>
+      <a mat-button color="primary" routerLink="/addCourse">הוספת קורס</a>
     </li>
-    <li class="li">
-      <a routerLink="/allCourses">כל הקורסים </a>
+    <li>
+      <a mat-button color="primary" routerLink="/allCourses">כל הקורסים </a>
     </li>
-    <li class="li">
-      <a routerLink="/register/lecturer">כניסת מרצים</a>
+    <li>
+      <a mat-button color="primary" routerLink="/register/lecturer">כניסת מרצים</a>
     </li>
-    <li class="li">
-      <a routerLink="/logOut">התנתק</a>
-    </li>
-  </ul>
+    <li>
+      <a mat-button color="primary" routerLink="/logOut">התנתק</a>
+    </li> -->
+  
+  <mat-chip-listbox aria-label="Fish selection"> 
+    <mat-chip-option routerLink="/logOut">התנתק</mat-chip-option>
+ 
+    <mat-chip-option routerLink="/addCourse">הוספת קורס</mat-chip-option>
+    <mat-chip-option routerLink="/allCourses">כל הקורסים </mat-chip-option>
+    <mat-chip-option routerLink="/register/lecturer">הרשמת מרצים</mat-chip-option>  
+     <mat-chip-option routerLink="/register"> הרשמה</mat-chip-option>
+    <mat-chip-option routerLink="/login">התחברות</mat-chip-option>
+   
+  </mat-chip-listbox>
+</ul>
+  
 </div>
+
+
 <router-outlet></router-outlet>

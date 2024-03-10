@@ -9,9 +9,12 @@ import { UserService } from "../user/user.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
    declarations:[CourseDetailsComponent ,AllCoursesComponent ,AddCourseComponent],
-   imports:[CommonModule,CourseRoutingModule,FormsModule,ReactiveFormsModule],
+   imports:[CommonModule,CourseRoutingModule,FormsModule,ReactiveFormsModule, MatButtonModule,MatSelectModule,MatIconModule],
    providers:[CourseService,UserService],
    exports:[AllCoursesComponent,AddCourseComponent]
 })
