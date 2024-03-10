@@ -7,6 +7,8 @@ import { FormsModule,  } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserModule } from './modules/user/user.module';
 import { HomeComponent } from './home/home.component';
+import { ButtonModule } from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { HomeComponent } from './home/home.component';
     CourseModule,
     UserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule,ButtonModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

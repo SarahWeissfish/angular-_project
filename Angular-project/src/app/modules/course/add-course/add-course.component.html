@@ -1,61 +1,75 @@
 <p>add-course works!</p>
 <div>
-    <!-- code?:number;
-    --name?:string;
-   -- category?:number;
-    --countLesson?:number;
-    date:Date;
-    sillibos:string[];
-    --wayLearning:Type;
-   -- codeLecturer?:number;
-    --image:string; -->
+    <label>סיליבוס</label>
+    <div *ngFor="let item of sillibos; let i = index">
+        <input type="text" [(ngModel)]="sillibos[i]" [value]="item">
+    </div>
+    <button (click)="sillibos.push('')">+</button>
     <form [formGroup]="courseForm">
+        <ng-container *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').touched"
+            class="alert alert-danger">
+            <div class="alert alert-danger"> countLesson invalid</div>
+        </ng-container>
         <div class="form-group">
-            <label >שם קורס</label>
-            <input type="text" class="form-control" formControlName="name" >
-            <ng-container *ngIf="courseForm.controls['name'].errors&& !courseForm.controls['name'].pristine">
-                <div class="alert alert-danger"> not name valid</div>
-            </ng-container>
+            <label>שם קורס</label>
+            <input type="text" placeholder="הכנס שם קורס" class="form-control" formControlName="courseName">
+            <div *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').touched"
+                class="alert alert-danger">
+                שם הקורס אינו תקין
+            </div>
         </div>
         <div class="form-group">
             <label for="course">קטגוריה: </label>
-            <select id="route"  formControlName="category">
+            <select id="route" formControlName="category">
                 <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
             </select>
+
         </div>
         <div class="form-group">
             <label>כמות שיעורים</label>
-            <input type="number" class="form-control" formControlName="countLesson">
-            <ng-container *ngIf="courseForm.controls['countLesson'].errors&& !courseForm.controls['countLesson'].pristine">
-                <div class="alert alert-danger">  countLesson invalid</div>
+            <input type="number" placeholder="הכנס כמות שיעורים" class="form-control" formControlName="countLesson">
+            <ng-container
+                *ngIf="courseForm.controls['countLesson'].errors&& !courseForm.controls['countLesson'].pristine">
+                <div class="alert alert-danger"> countLesson invalid</div>
             </ng-container>
         </div>
         <div class="form-group">
             <label>קישור לתמונה</label>
-            <input type="text" class="form-control"  formControlName="image">
+            <input type="text" placeholder="הכנס URL של תמונה" class="form-control" formControlName="image">
             <ng-container *ngIf="courseForm.controls['image'].errors&& !courseForm.controls['image'].pristine">
                 <div class="alert alert-danger"> not image valid</div>
             </ng-container>
         </div>
-        <div class="form-control">  
+        <div class="form-control">
             <label for="wayLearning">דרך לימוד:</label>
             <br>
-            <input type="radio" name="wayLearning" formControlName="wayLearning"  value="1"/>frontal
+            <input type="radio" name="wayLearning" formControlName="wayLearning" value="1" />frontal
             <br>
-            <input type="radio" name="wayLearning" formControlName="wayLearning"   value="2"/>ZOOM
-            <br>   
+            <input type="radio" name="wayLearning" formControlName="wayLearning" value="2" />ZOOM
+            <br>
         </div>
+        <!-- <div class="form-control">
+            <label for="">סיליבוס:</label>
+            <div *ngFor=" let i of sillibos; let j = index ">
+                <input *ngFor="let item of myArray$ | async; let i = index" (input)="updateArray($event.target.value, i)">
+                <input type="text" [(ngModel)]="sillibos[j]" [value]="i">
+            </div>
+        </div> -->
+
         <div class="form-group">
-            <label>תאריך התחלה:</label>
-            <input type="text" class="form-control"   formControlName="date">
+            <label>תאריך פתיחת קורס:</label>
+            <input type="text" placeholder="01/01/2025" class="form-control" formControlName="date">
             <ng-container *ngIf="courseForm.controls['date'].errors&& !courseForm.controls['date'].pristine">
-                <div class="alert alert-danger"> הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12 תווים</div>
+                <div class="alert alert-danger"> הסיסמא חייבת להכיל לפחות אות קטנה אחת, אות גדולה אחת ומספר אחד. 6-12
+                    תווים</div>
             </ng-container>
         </div>
-        <button *ngIf="!new" class="save" [disabled]="!courseForm.valid" (click)="cancle()">בטל</button>
-        <button *ngIf="!new" class="save" [disabled]="!courseForm.valid" (click)="update()">עדכן שינויים</button>
-        <button *ngIf="new" class="save" [disabled]="!courseForm.valid" (click)="save()">שלח</button>
+
+        <button class="save" (click)="cancle()">בטל</button>
+        <button *ngIf="!new" class="save" (click)="deleteCourse()">מחיקת קורס</button>
+        <!-- <button *ngIf="!new" class="save" [disabled]="!courseForm.valid" (click)="update()">עדכן שינויים</button>
+        <button *ngIf="new" class="save" [disabled]="!courseForm.valid" (click)="save()">שלח</button> -->
+        <button class="save" [disabled]="!courseForm.valid" (click)="saveOrUpdateCourse()">{{ new ? 'שלח' : 'עדכן'
+            }}</button>
     </form>
-
-
 </div>

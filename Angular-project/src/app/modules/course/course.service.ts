@@ -28,8 +28,11 @@ export class CourseService {
         console.log(c);
         return this._http.post<Course>(`/api/Courses`,c) 
     }
-    updateourseToServer(c:Course,id:number):Observable<Course>{
+    updateCourseToServer(c:Course,id:number):Observable<Course>{
         return this._http.put<Course>(`/api/Courses/${id}`,c) 
+    }
+    deleteCourseFromServer(id:number):Observable<Course>{
+        return this._http.delete<Course>(`/api/Courses/${id}`) 
     }
 
 }

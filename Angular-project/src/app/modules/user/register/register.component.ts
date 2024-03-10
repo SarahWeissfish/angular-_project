@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +12,7 @@ export class RegisterComponent {
 
   u:User;
   registerForm: FormGroup= new FormGroup({});
-  constructor(private _usrService:UserService , private _router: Router){
+  constructor(private _usrService:UserService , private _router: Router, private _act: ActivatedRoute){
     this.registerForm=new FormGroup({
       "userName":new FormControl(sessionStorage.getItem('name'),[Validators.required,Validators.minLength(3)]),
       "password":new FormControl(this.u?.password,[Validators.required,Validators.minLength(3),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}")]),
@@ -27,7 +27,13 @@ export class RegisterComponent {
     this.u.password=this.registerForm.controls["password"].value;
     this.u.address=this.registerForm.controls["address"].value;
     this.u.email=this.registerForm.controls["email"].value;
-
+    this._act.paramMap.subscribe(p => {
+      if (p.has("lecturer")) {
+        this.u.lecturer=true;
+        alert("le")
+      }
+    })
+    console.log(this.u)
     this._usrService.register(this.u).subscribe({
       next:(res=>{
         if(res==undefined){

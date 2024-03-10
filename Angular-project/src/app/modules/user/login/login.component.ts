@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,15 @@ export class LoginComponent {
   
   u: User =JSON.parse(sessionStorage.getItem('userData'))||undefined;
   loginForm: FormGroup = new FormGroup({});
-  constructor(private _userService: UserService, private _router: Router) { }
+  constructor(private _userService: UserService, private _router: Router , private _act: ActivatedRoute) { }
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       "userName": new FormControl("", [Validators.required, Validators.minLength(3)]),
       "password": new FormControl("", [Validators.required, Validators.minLength(3), Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}")]),
     })
+    
+
+  
   }
   login() {
 

@@ -92,13 +92,13 @@ namespace serverAngular.Controllers
 
         // DELETE api/<courses>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public Course Delete(int id)
         {
             var course = COURSES.Find(s => s.code == id);
             COURSES.Remove(course);
             if (!COURSES.Contains(course))
-                return Ok();
-            return BadRequest("course is not deleted!");
+                return course;
+            return null;
         }
     }
 }

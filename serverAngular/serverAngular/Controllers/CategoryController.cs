@@ -11,9 +11,9 @@ namespace serverAngular.Controllers
     {
         public static List<Category> CATEGORIES = new List<Category>
         {
-            new Category(1,"dd","eefd//afadfa"),
-            new Category(2,"dd","eefd//afadfa"),
-            new Category(3,"dd","eefd//afadfa"),
+            new Category(1,"שפות","eefd//afadfa"),
+            new Category(2,"עיצוב","eefd//afadfa"),
+            new Category(3,"mbb","eefd//afadfa"),
     };
         // GET: api/<Category>
         [HttpGet]

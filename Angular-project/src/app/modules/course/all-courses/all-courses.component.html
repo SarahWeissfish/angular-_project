@@ -1,32 +1,35 @@
 <p>all-courses works!</p>
-<input type="text" placeholder="enter name of course" [(ngModel)]="courseName" (input)="getCoursesByName()" />
-<div >  
-    <label>דרך לימוד:</label>
-    <br>
-    <input type="radio" name="wayLearning"   value="1" onchange="changeValue()"/>frontal
-    <br>
-    <input type="radio" name="wayLearning"   value="2" onchange="changeValue()"/>ZOOM
-    <br>   
+<div class="h">
+    <div class="header">
+        <input type="text" placeholder="enter name of course" [(ngModel)]="courseName" (input)="getCoursesByName()" />
+        <div>
+            <label>דרך לימוד:</label>
+            <br>
+            <input type="radio" name="wayLearning" value="1" onchange="changeValue()" />frontal
+            <input type="radio" name="wayLearning" value="2" onchange="changeValue()" />ZOOM
+        </div>
+        <div>
+            <label>קטגוריה: </label><br/>
+            <select onchange="changeValue()">
+                <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
+            </select>
+        </div>
+    </div>
 </div>
-<div >
-    <label >קטגוריה: </label>
-    <select onchange="changeValue()">
-        <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
-    </select>
-</div>
-<div >
-    <div *ngFor=" let i of courses"  [ngClass]="{'list-group-item-danger': i.date}">
+<div>
+    <div *ngFor=" let i of courses" [ngClass]="{'list-group-item-danger': i.date}">
         <div class="card" style="width: 18rem;">
-            
-                <img src="{{ i.image }}" class="card-img-top"  />  
-          
+
+            <img src="{{ i.image }}" class="card-img-top" />
+
             <div class="card-body">
                 <h5 class="card-title">{{i.name}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
                 <button class="btn btn-outline-secondary" (click)="showDetails2(i)">show Details</button>
-                
-              </div>
-        </div>  
+
+            </div>
+        </div>
     </div>
 </div>
 <br>
