@@ -1,8 +1,17 @@
-
 <div class="h ">
     <div class="header">
-        <input type="text" placeholder="enter name of course" [(ngModel)]="courseName" (input)="getCoursesByName()" />
-        <div >
+        <div class="form-floating mb-3">
+            <input type="text" id="floatingInput" [(ngModel)]="courseName" class="form-control"
+                (input)="getCoursesByName()" />
+            <label for="floatingInput"> 🔍 הכנס שם לחיפוש</label>
+        </div>
+        <div>
+            <select class="form-select" aria-label="Default select example" (change)="changeValue2($event)">
+                <option [value]="0"> קטגוריה</option>
+                <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
+            </select>
+        </div>
+        <div style="display: flex; flex-direction: column-reverse;">
             <!-- <label>דרך לימוד:</label> -->
             <div class="form-check form-check-inline">
                 <label class="form-check-label" for="inlineRadio1">frontal</label>
@@ -19,12 +28,6 @@
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option3"
                     (click)="changeValue(3)">
             </div>
-        </div>
-        <div>
-            <select class="form-select" aria-label="Default select example" (change)="changeValue2($event)">
-                <option [value]="0"> קטגוריה</option>
-                <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
-            </select>
         </div>
     </div>
 </div>

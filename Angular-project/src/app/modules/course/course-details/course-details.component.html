@@ -1,11 +1,13 @@
 <div *ngIf="course" style="direction: rtl;">
-  <h1>{{course.name}}</h1>
+    <h1>{{course.name}}</h1>
     <br />
     <img src="{{ course.image }}" [ngStyle]="{ 'width.px': 350, 'height.rem': 16 }" />
     <br />
     <div *ngIf="category">
-        קטגוריה:{{category.name}}
-        <!-- <img src="{{ category.iconRouting }}" [ngStyle]="{ 'width.px': 30, 'height.px': 30 }" /> -->
+        <label>קטגוריה:</label>
+        <br />
+        <img src="{{category.iconRouting}}" [ngStyle]="{ 'width.px': 25, 'height.px': 25 }" />
+        {{category.name}}
     </div>
     מס' שיעורים:{{course.countLesson}}
     <br />
@@ -14,11 +16,13 @@
         <p *ngSwitchCase="1">frontal </p>
         <p *ngSwitchCase="2">ZOOM</p>
     </div>
-    <br />
     <label>סיליבוס</label>
-    <ul *ngFor="let i of course.sillibos">
-        <li>{{i}}</li>
-    </ul>
+    <div class="card" style="width: 18rem;">
+        
+        <ul *ngFor="let i of course.sillibos" class="list-group list-group-flush">
+            <li  class="list-group-item">{{i}}</li>
+        </ul>
+    </div>
     <ng-container *ngIf="lecturer">
         <label>מרצה:</label>
         <div>

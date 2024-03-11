@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { Category } from '../categoty.model';
 import { CourseService } from '../course.service';
 import { Course } from '../course.model';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-course',
   templateUrl: './add-course.component.html',
@@ -17,7 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class AddCourseComponent {
   user = JSON.parse(sessionStorage.getItem('userData'))?.lecturer || false
   new: boolean;
-  sillibos: string[];
+  sillibosArray;
+  controls;
   private _course: Course;
   public get course(): Course {
     return this._course;
@@ -31,43 +29,57 @@ export class AddCourseComponent {
       "wayLearning": new FormControl(this.course?.wayLearning, [Validators.required]),
       "date": new FormControl(this.course?.date, [Validators.required]),
       "category": new FormControl(this.course?.category,),
-      "sillibos": new FormControl(this.sillibos, [Validators.minLength(3)])
+      "sillibos": this._formBuilder.array([])
     })
+    this.course.sillibos.forEach(sillibo => {
+      (this.courseForm.get('sillibos') as FormArray).push(new FormControl(sillibo));
+    });
+    this.addSillibo();
+    this.sillibosArray = this.courseForm.get('sillibos') as FormArray;
+    this.controls = this.sillibosArray.controls;
   }
-
   courseForm: FormGroup = new FormGroup({});
   categories: Category[];
-  constructor(private _usrService: UserService, private _router: Router, private _courseService: CourseService, private _act: ActivatedRoute,) {
-
-  }
-
+  constructor(private _router: Router, private _courseService: CourseService, private _act: ActivatedRoute, private _formBuilder: FormBuilder) { }
   ngOnInit(): void {
     this._act.paramMap.subscribe(p => {
-      if (p.has("id") /*&& +p.get("id") > 0*/) {
+      if (p.has("id")) {
         this._courseService.getCourseFromServer(+p.get("id")).subscribe(data => {
           this.course = data;
-          this.new = false;
-          this.sillibos = this.course.sillibos;
-          this.sillibos.push("");
-        })
+          this.new = false;})
       }
       else {
         this.course = new Course();
         this.new = true;
-        console.log(this.course)
-        this.sillibos = [""]
         this.course.codeLecturer = JSON.parse(sessionStorage.getItem('userData'))?.code;
-        //this.sillibos.push("");
       }
     })
-
     this._courseService.getCategoriesFromServer().subscribe(x => {
       this.categories = x;
     })
-
-    console.log(this.sillibos)
   }
+  getSilliboControl(index: number) {
 
+    return (this.courseForm.get('sillibos') as FormArray).controls[index] as FormControl;
+  }
+  addSillibo() {
+    (this.courseForm.get('sillibos') as FormArray).push(new FormControl());
+  }
+  removeSillibo(index: number) {
+    alert("remover " + index)
+    const sillibosArray = this.courseForm.get('sillibos') as FormArray;
+    sillibosArray.removeAt(index);
+  }
+  onSilliboChange(index: number, value: any) {
+    const sillibosArray = this.courseForm.get('sillibos') as FormArray;
+    const lastIndex = sillibosArray.length - 1;
+
+    if (value.target.value !== '' && index === lastIndex) {
+      this.addSillibo();
+    } else if (value.target.value === '' && index !== lastIndex) {
+      sillibosArray.removeAt(index);
+    }
+  }
   fillCourse() {
     this.course.name = this.courseForm.controls["courseName"].value;
     this.course.countLesson = this.courseForm.controls["countLesson"].value;
@@ -75,27 +87,32 @@ export class AddCourseComponent {
     this.course.wayLearning = this.courseForm.controls["wayLearning"].value;
     this.course.date = this.courseForm.controls["date"].value;
     this.course.category = this.courseForm.controls["category"].value;
-    // this.course.date.toDateString();
-    console.log(this.sillibos)
-    this.sillibos = this.sillibos
-    console.log(this.course.sillibos)
+    const sillibosArray = this.courseForm.get('sillibos') as FormArray;
+    this.course.sillibos = sillibosArray.getRawValue();
+    this.course.sillibos.pop()
   }
-  // update() {
-  //   this.fill()
-  //   this._courseService.updateourseToServer(this.course, this.course.code).subscribe(x => {
-  //     alert("the course update")
-  //   })
-  // }
   saveOrUpdateCourse(): void {
     this.fillCourse();
     if (this.new) {
       this._courseService.saveCourseToServer(this.course).subscribe(() => {
-        alert('הקורס נוסף בהצלחה');
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "הקורס נוסף בהצלחה'" ,
+          showConfirmButton: false,
+          timer: 800
+        });
         this._router.navigate(['/allCourses']);
       });
     } else {
       this._courseService.updateCourseToServer(this.course, this.course.code).subscribe(() => {
-        alert('הקורס עודכן בהצלחה');
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "הקורס עודכן בהצלחה'" ,
+          showConfirmButton: false,
+          timer: 800
+        });
         this._router.navigate(['/allCourses']);
       });
     }
@@ -108,7 +125,13 @@ export class AddCourseComponent {
   }
   deleteCourse() {
     this._courseService.deleteCourseFromServer(this.course.code).subscribe(x => {
-      alert("the course deleted")
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "הקורס נמחק בהצלחה'",
+        showConfirmButton: false,
+        timer: 800
+      });
       this._router.navigate(["allCourses"]);
     })
   }

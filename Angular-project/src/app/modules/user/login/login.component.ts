@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,6 @@ export class LoginComponent {
       "userName": new FormControl("", [Validators.required, Validators.minLength(3)]),
       "password": new FormControl("", [Validators.required, Validators.minLength(3), Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$")]),
     })
-    
-
-  
   }
   login() {
 
@@ -32,21 +30,30 @@ export class LoginComponent {
     this._userService.login(this.u).subscribe(x => {
       if (x != undefined&&x.code>0)
         { sessionStorage.setItem('userData', JSON.stringify(x));
-          alert(JSON.parse(sessionStorage.getItem('userData')).name + " hello")
+          Swal.fire({
+            position: "top",
+            title: "hello "+JSON.parse(sessionStorage.getItem('userData')).name ,
+            showConfirmButton: false,
+            timer: 800
+          });
           this._router.navigate(["allCourses"]);
         }
       else if (x == undefined) {
-        alert("אינך רשום במערכת ")
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "אינך רשום במערכת !",
+        });
         sessionStorage.setItem('name',this.u.name );
         this._router.navigate(["register"])
       }
       else {
-        alert("סיסמא שגויה")
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "הסיסמא שגויה!",
+        });
       }
-      // else{
-      //   alert(JSON.parse(storedDataString).name + " hello")
-      //   this._router.navigate(["home"])
-      // }
     })
 
   }

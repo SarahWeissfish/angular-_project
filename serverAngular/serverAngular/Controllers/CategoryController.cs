@@ -11,9 +11,9 @@ namespace serverAngular.Controllers
     {
         public static List<Category> CATEGORIES = new List<Category>
         {
-            new Category(1,"שפות","eefd//afadfa"),
-            new Category(2,"עיצוב","eefd//afadfa"),
-            new Category(3,"mbb","eefd//afadfa"),
+            new Category(1,"שפות","https://cdn-icons-png.flaticon.com/128/814/814513.png"),
+            new Category(2,"עיצוב","https://cdn-icons-png.flaticon.com/128/1055/1055666.png"),
+            new Category(3,"mbb","https://cdn-icons-png.flaticon.com/128/2779/2779775.png"),
     };
         // GET: api/<Category>
         [HttpGet]

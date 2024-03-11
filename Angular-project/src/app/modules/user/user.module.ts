@@ -9,7 +9,6 @@ import { UserService } from "./user.service";
 import { LogOutComponent } from './log-out/log-out.component';
 import { MatButtonModule } from "@angular/material/button";
 
-
 @NgModule({
    declarations:[LoginComponent,RegisterComponent, LogOutComponent],
    imports:[CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule,RouterModule,MatButtonModule],

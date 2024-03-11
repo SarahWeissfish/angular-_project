@@ -24,7 +24,6 @@ export class CourseDetailsComponent {
         if (p.has("id")) {
           this._courseService.getCourseFromServer(+p.get("id")).subscribe(data => {
             this.course = data;
-            console.log(this.course);
             if (this.course != null)
               this._courseService.getCategoryFromServer(this.course.category).subscribe(d => { this.category = d })
             this._usrService.getUserFromServer(this.course.codeLecturer).subscribe(d => {

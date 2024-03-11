@@ -14,7 +14,7 @@ namespace serverAngular.Controllers
         public static List<User> USERS = new List<User>
         {
            new User{code=1,name="chana",address="רחוב במכבים 6", email="r0542@gmail.com",password="Aa!2Sd" ,lecturer=false},
-            new User{code=2,name="ruth",address="רחוב פוברסקי 6" ,email="785sdf1@gmail.com",password="Aa!2Sd",lecturer=true},
+           new User{code=2,name="ruth",address="רחוב פוברסקי 6" ,email="785sdf1@gmail.com",password="Aa!2Sd",lecturer=true},
            new User{code=3,name="tami",address="רחוב השומר 45", email="we2421@gmail.com",password="Aa!2Sd",lecturer=false},
           new User{code=4,name="rivki",address="נחום 23", email="df245@gmail.com",password="Aa!2Sd",lecturer=true }
         };
@@ -56,7 +56,6 @@ namespace serverAngular.Controllers
         [HttpPost("login={name}")]
         public User Post(string name, [FromBody] User value)
         {
-
             var u = USERS.Find(x => x.name.Equals(value.name) && x.password.Equals(value.password));
             if (u != null)
                 return u;
@@ -66,8 +65,6 @@ namespace serverAngular.Controllers
                 value.code = -1;
                 return value;
             }
-                
-
             return null;
         }
         // POST api/<user>
