@@ -8,10 +8,11 @@ import { RouterModule } from "@angular/router";
 import { UserService } from "./user.service";
 import { LogOutComponent } from './log-out/log-out.component';
 import { MatButtonModule } from "@angular/material/button";
+import { UserRoutingModule } from "./user-routing.module";
 
 @NgModule({
    declarations:[LoginComponent,RegisterComponent, LogOutComponent],
-   imports:[CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule,RouterModule,MatButtonModule],
+   imports:[CommonModule,FormsModule,ReactiveFormsModule,HttpClientModule,RouterModule,MatButtonModule,UserRoutingModule],
    providers:[UserService],
    exports:[LoginComponent,RegisterComponent,LogOutComponent]
 })

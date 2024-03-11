@@ -19,7 +19,7 @@ export class AllCoursesComponent {
   courses2: Course[];
   categories: Category[];
   courseName: string = '';
-  coursesSelct: Observable<Course> =new Observable();
+  coursesSelct: Observable<Course> = new Observable();
   private searchTerms = new Subject<string>()
   constructor(private _courseService: CourseService, private _router: Router) {
     _courseService.getCoursesFromServer().subscribe(data => {
@@ -43,27 +43,40 @@ export class AllCoursesComponent {
       switchMap(() => this._courseService.getCoursesFromSrverByNme(this.courseName)),
     ).subscribe(data => this.courses = data);
   }
-  changeValue(i:number){
+  changeValue(i: number) {
 
-   this._courseService.getCoursesFromServer().pipe(
-    map(data => data.filter(item => {
-      if (i==3||i ==+item.wayLearning ) {
-        return true; 
-      }
-      return false; 
-    }))
-  ).subscribe(data => {
-    this.courses = data;
-    this.courses2=data;
-  })
+    this._courseService.getCoursesFromServer().pipe(
+      map(data => data.filter(item => {
+        if (i == 3 || i == +item.wayLearning) {
+          return true;
+        }
+        return false;
+      }))
+    ).subscribe(data => {
+      this.courses = data;
+      this.courses2 = data;
+    })
   }
   changeValue2(event: any) {
-    
-    const selectedValue:number = event.target.value;
-    if(selectedValue==0)
-    this.courses=this.courses2
+
+    const selectedValue: number = event.target.value;
+    if (selectedValue == 0)
+      this.courses = this.courses2
     else
-    this.courses=this.courses2.filter(x=>
-      +x.category==+selectedValue)
+      this.courses = this.courses2.filter(x =>
+        +x.category == +selectedValue)
+  }
+  w
+  isCourseInNextWeek(course: Course): boolean {
+    
+    console.log(this.nextWeek+"next")
+    this.w=new Date(course.date)
+    console.log(this.w)
+      if (this.w.getDate() <= this.nextWeek.getDate())
+      {
+        console.log("hi")
+        return true
+      }   
+    return false
   }
 }

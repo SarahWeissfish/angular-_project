@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="courses">
-    <div *ngFor=" let i of courses" [ngClass]="{'list-group-item-success':i.date<=nextWeek}">
+    <div *ngFor=" let i of courses" [ngClass]="{'class-if-in-next-week':isCourseInNextWeek(i)}">
         <div class="card" style="width: 18rem;">
 
             <img src="{{ i.image }}" class="card-img-top" style=" height: 250px;" />
