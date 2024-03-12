@@ -66,17 +66,10 @@ export class AllCoursesComponent {
       this.courses = this.courses2.filter(x =>
         +x.category == +selectedValue)
   }
-  w
-  isCourseInNextWeek(course: Course): boolean {
-    
-    console.log(this.nextWeek+"next")
-    this.w=new Date(course.date)
-    console.log(this.w)
-      if (this.w.getDate() <= this.nextWeek.getDate())
-      {
-        console.log("hi")
-        return true
-      }   
-    return false
-  }
+  getCssClass(course:Course) {
+    const dateString = course.date;
+    const parts = dateString.toString().split('/');
+    const dateObject = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+    return dateObject<=this.nextWeek ? 'date' : null;
+  }  
 }

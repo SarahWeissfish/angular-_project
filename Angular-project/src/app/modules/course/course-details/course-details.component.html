@@ -1,38 +1,49 @@
-<div *ngIf="course" style="direction: rtl;">
-    <h1>{{course.name}}</h1>
-    <br />
-    <img src="{{ course.image }}" [ngStyle]="{ 'width.px': 350, 'height.rem': 16 }" />
-    <br />
-    <div *ngIf="category">
-        <label>קטגוריה:</label>
-        <br />
-        <img src="{{category.iconRouting}}" [ngStyle]="{ 'width.px': 25, 'height.px': 25 }" />
-        {{category.name}}
-    </div>
-    מס' שיעורים:{{course.countLesson}}
-    <br />
-    <label>דרך לימוד:</label>
-    <div [ngSwitch]="course.wayLearning">
-        <p *ngSwitchCase="1">frontal </p>
-        <p *ngSwitchCase="2">ZOOM</p>
-    </div>
-    <label>סיליבוס</label>
-    <div class="card" style="width: 18rem;">
-        
-        <ul *ngFor="let i of course.sillibos" class="list-group list-group-flush">
-            <li  class="list-group-item">{{i}}</li>
-        </ul>
-    </div>
-    <ng-container *ngIf="lecturer">
-        <label>מרצה:</label>
-        <div>
-            <label>שם:</label>
-            {{lecturer.name}}
-            <label>email:</label>
-            {{lecturer.email}}
+<div style="display: flex; justify-content: center;"><div style="width: 350px;display: flex;align-items: center; direction: rtl;">
+    <div *ngIf="course" style="direction: rtl;" class="card " style="display: flex; ">
+        <div style="padding-top: 10px;display: flex; justify-content: center;">
+            <p style="font-size: 30px; "> {{course.name}} </p>
+            <img *ngIf="category" src="{{category.iconRouting}}" [ngStyle]="{ 'width.px': 25, 'height.px': 25 }" />
         </div>
-    </ng-container>
-    <ng-container *ngIf="lecturer?.code==userId">
-        <button mat-fab extended color="primary" routerLink="/addCourse/{{course.code}}">עריכה</button>
-    </ng-container>
-</div>
+        <ng-container *ngIf="lecturer">
+            <!-- <label class="label">מרצה:</label> -->
+            <div>
+                <label style="padding: 8px;">שם:{{lecturer.name}}</label>
+                <label style="padding: 8px;">email: {{lecturer.email}}</label>
+            </div>
+        </ng-container>
+        <br />
+        <img src="{{ course.image }}" [ngStyle]="{ 'width.px': 320, 'height.rem': 16 }" />
+        <br />
+        <div style="text-align: right ;padding: 8px;">
+            <div *ngIf="category">
+                <label class="label">קטגוריה:</label>
+                <br />
+                {{category.name}}
+            </div>
+            <label class="label">מס' שיעורים:</label>
+            {{course.countLesson}}
+            <br />
+            <label class="label">דרך לימוד:</label>
+            <div [ngSwitch]="course.wayLearning">
+                <p *ngSwitchCase="1">frontal </p>
+                <p *ngSwitchCase="2">ZOOM</p>
+            </div>
+        </div>
+        <label class="label" style="padding: 8px;">סיליבוס:</label>
+        <div class="card" style="width: 18rem;">
+
+            <ul *ngFor="let i of course.sillibos" class="list-group list-group-flush sili">
+                <li class="list-group-item ">{{i}}</li>
+            </ul>
+        </div>
+        <br />
+        <div style="display: flex;     justify-content: center;
+">
+            <ng-container *ngIf="lecturer?.code==userId">
+                <button style="width: 150px" mat-fab extended color="primary"
+                    routerLink="/addCourse/{{course.code}}">עריכה</button>
+            </ng-container>
+        </div>
+        <br />
+    </div>
+</div></div>

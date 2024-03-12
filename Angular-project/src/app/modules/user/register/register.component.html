@@ -1,7 +1,7 @@
 
 <div class="form">
 
-    <form *ngIf="!u1?.code"> [formGroup]="registerForm" class="row g-2">
+    <form *ngIf="!u1?.code" [formGroup]="registerForm" class="row g-2">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" formControlName="userName"  placeholder="שם משתמש">
             <label for="floatingInput">שם משתמש</label>
@@ -33,8 +33,8 @@
           </div>
         <button mat-fab extended color="primary" class="save" class="col-2" [disabled]="!registerForm.valid" (click)="register()">הרשמה</button>
     </form>
-    <ng-container *ngIf="u1?.code">
-        אתה מחובר
+    <ng-container  *ngIf="u1?.code">
+        <p class="log"> אתה מחובר</p>
     </ng-container>
 
 </div>

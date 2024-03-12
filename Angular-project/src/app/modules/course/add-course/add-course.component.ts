@@ -25,7 +25,7 @@ export class AddCourseComponent {
     this.courseForm = new FormGroup({
       "courseName": new FormControl(this.course?.name, [Validators.required]),
       "countLesson": new FormControl(this.course?.countLesson, [Validators.required]),
-      "image": new FormControl(this.course?.image, [Validators.minLength(3)]),
+      "image": new FormControl(this.course?.image, [Validators.minLength(3),Validators.required]),
       "wayLearning": new FormControl(this.course?.wayLearning, [Validators.required]),
       "date": new FormControl(this.course?.date, [Validators.required]),
       "category": new FormControl(this.course?.category,),
@@ -40,8 +40,9 @@ export class AddCourseComponent {
   }
   courseForm: FormGroup = new FormGroup({});
   categories: Category[];
-  constructor(private _router: Router, private _courseService: CourseService, private _act: ActivatedRoute, private _formBuilder: FormBuilder) { }
+  constructor(private _router: Router, private _courseService: CourseService, private _act: ActivatedRoute, private _formBuilder: FormBuilder) {this.course=new Course() }
   ngOnInit(): void {
+
     this._act.paramMap.subscribe(p => {
       if (p.has("id")) {
         this._courseService.getCourseFromServer(+p.get("id")).subscribe(data => {
@@ -49,7 +50,6 @@ export class AddCourseComponent {
           this.new = false;})
       }
       else {
-        this.course = new Course();
         this.new = true;
         this.course.codeLecturer = JSON.parse(sessionStorage.getItem('userData'))?.code;
       }

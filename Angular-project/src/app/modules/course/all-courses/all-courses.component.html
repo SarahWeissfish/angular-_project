@@ -32,16 +32,24 @@
     </div>
 </div>
 <div class="courses">
-    <div *ngFor=" let i of courses" [ngClass]="{'class-if-in-next-week':isCourseInNextWeek(i)}">
-        <div class="card" style="width: 18rem;">
-
-            <img src="{{ i.image }}" class="card-img-top" style=" height: 250px;" />
-
+    <div *ngFor=" let i of courses">
+        <div class="card" style="width: 18rem; height: 30rem;margin: 5px;">
+            <img src="{{ i.image }}" class="card-img-top" style=" height: 200px; " />
             <div class="card-body">
                 <h1 class="card-title">{{i.name}}</h1>
+
+                <p [ngClass]="getCssClass(this.i)">
+                    {{ i?.date }}
+                </p>
+                <p *ngIf="getCssClass(this.i)" class="date" >
+                    -שבוע אחרון לרישום-
+                   </p>
+                   <p *ngIf="!getCssClass(this.i)" >
+                    -מספר מקומות מוגבל -
+                   </p>   
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p>
-                <button mat-fab extended color="primary" (click)="showDetails2(i)">show Details</button>
+                <button mat-fab extended color="primary" (click)="showDetails2(i)">פרטים נוספים</button>
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  
+  lecturer=false
   u: User =JSON.parse(sessionStorage.getItem('userData'))||undefined;
   loginForm: FormGroup = new FormGroup({});
   constructor(private _userService: UserService, private _router: Router , private _act: ActivatedRoute) { }

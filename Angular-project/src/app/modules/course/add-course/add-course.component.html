@@ -1,9 +1,8 @@
-<div *ngIf="user" style="display: flex;justify-content: space-evenly;">
-    <form [formGroup]="courseForm" >
-        <ng-container *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').pristine"
+<div *ngIf="user" style="display: flex;justify-content: space-evenly;direction: rtl;">
+    <form [formGroup]="courseForm">
+        <!-- <ng-container *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').pristine"
             class="alert alert-danger">
-        
-        </ng-container>
+        </ng-container> -->
         <div class="form-floating mb-3">
             <input type="text" placeholder="הכנס שם קורס" id="floatingInput" class="form-control" style="width: 18rem;"
                 formControlName="courseName">
@@ -20,7 +19,7 @@
                 <option *ngFor="let r of categories" [value]="r.code"> {{r.name}}</option>
             </select>
         </div>
-        <br/>
+        <br />
         <div class="form-floating mb-3">
             <input type="number" id="floatinNumber" placeholder="הכנס כמות שיעורים" class="form-control"
                 style="width: 18rem;" formControlName="countLesson">
@@ -51,10 +50,14 @@
                 <div class="alert alert-danger"> wayLearning invalid</div>
             </ng-container>
         </div>
+        <label for="floatingInput">סיליבוס:</label>
         <div formArrayName="sillibos" class="card" style="width: 18rem;">
             <div *ngFor="let silliboIndex of controls; let i = index">
-                <input [formControl]="getSilliboControl(i)" type="text" placeholder="{{ i + 1 }}"
-                    (input)="onSilliboChange(i, $event)">
+
+                <div class="form-floating mb-3 ">
+                  *<input [formControl]="getSilliboControl(i)" class="sili" type="text" placeholder="{{ i + 1 }}"
+                        id="floatingInput" (input)="onSilliboChange(i, $event)">
+                </div>
             </div>
         </div>
         <div class="form-floating mb-3">
@@ -68,11 +71,11 @@
             </ng-container>
         </div>
         <button mat-fab extended color="primary" class="save" (click)="cancle()">בטל</button>
-        <button mat-fab extended color="primary" *ngIf="!new" class="save" (click)="deleteCourse()">מחיקת קורס</button>
+        <button mat-fab extended color="primary" *ngIf="!new" class="save" (click)="deleteCourse()">מחק </button>
         <button mat-fab extended color="primary" class="save" [disabled]="!courseForm.valid"
             (click)="saveOrUpdateCourse()">{{ new ? 'הוספה' : 'עדכן'}}</button>
     </form>
 </div>
-<ng-container *ngIf="!user">
-    <h1> אינך ברמת מרצה :(</h1>
+<ng-container class="log" *ngIf="!user">
+    <h1 class="log"> אינך ברמת מרצה :(</h1>
 </ng-container>

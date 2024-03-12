@@ -1,5 +1,10 @@
 .courses{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-end;
+}
+
+.date {
+    color: red;
+    font-size: larger;
 }

@@ -28,12 +28,12 @@ export class RegisterComponent {
     this.u.password=this.registerForm.controls["password"].value;
     this.u.address=this.registerForm.controls["address"].value;
     this.u.email=this.registerForm.controls["email"].value;
-    this._act.paramMap.subscribe(p => {
-      if (p.has("lecturer")) {
-        this.u.lecturer=true;
-        alert("le")
-      }
-    })
+    // this._act.paramMap.subscribe(p => {
+    //   if (p.has("lecturer")) {
+    //     this.u.lecturer=true;
+    //     alert("le")
+    //   }
+    // })
     this._usrService.register(this.u).subscribe({
       next:(res=>{
         if(res==undefined){
