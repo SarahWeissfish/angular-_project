@@ -12,8 +12,9 @@ import { RouterModule } from "@angular/router";
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { IconPipe } from "./iconPipe";
 @NgModule({
-   declarations:[CourseDetailsComponent ,AllCoursesComponent ,AddCourseComponent],
+   declarations:[CourseDetailsComponent ,AllCoursesComponent ,AddCourseComponent,IconPipe],
    imports:[CommonModule,CourseRoutingModule,FormsModule,ReactiveFormsModule, MatButtonModule,MatSelectModule,MatIconModule],
    providers:[CourseService,UserService],
    exports:[AllCoursesComponent,AddCourseComponent]

@@ -19,6 +19,8 @@ export class AllCoursesComponent {
   courses2: Course[];
   categories: Category[];
   courseName: string = '';
+  filter1 = 0;
+  filter2 = 3;
   coursesSelct: Observable<Course> = new Observable();
   private searchTerms = new Subject<string>()
   constructor(private _courseService: CourseService, private _router: Router) {
@@ -41,35 +43,42 @@ export class AllCoursesComponent {
       debounceTime(1000),
       distinctUntilChanged(),
       switchMap(() => this._courseService.getCoursesFromSrverByNme(this.courseName)),
-    ).subscribe(data => this.courses = data);
+    ).subscribe(data => {
+      this.courses = data;
+      this.courses2 = data
+      this.filter()
+    });
   }
   changeValue(i: number) {
 
-    this._courseService.getCoursesFromServer().pipe(
-      map(data => data.filter(item => {
-        if (i == 3 || i == +item.wayLearning) {
-          return true;
-        }
-        return false;
-      }))
-    ).subscribe(data => {
-      this.courses = data;
-      this.courses2 = data;
-    })
+    // this._courseService.getCoursesFromServer().pipe(
+    //   map(data => data.filter(item => {
+    //     if (i == 3 || i == +item.wayLearning) {
+    //       return true;
+    //     }
+    //     return false;
+    //   }))
+    // ).subscribe(data => {
+    //   this.courses = data;
+    //   this.courses2 = data;
+    // })
+    this.filter2=i;
+    this.filter()
   }
   changeValue2(event: any) {
 
-    const selectedValue: number = event.target.value;
-    if (selectedValue == 0)
-      this.courses = this.courses2
-    else
-      this.courses = this.courses2.filter(x =>
-        +x.category == +selectedValue)
+    this.filter1 = event.target.value;
+    this.filter()
   }
-  getCssClass(course:Course) {
+  filter() {
+   
+    this.courses = this.courses2.filter(c => (this.filter1 == 0 || c.category == +this.filter1)
+      && (this.filter2 == 3 || +c.wayLearning == this.filter2) && c.name.includes(this.courseName))
+  }
+  getCssClass(course: Course) {
     const dateString = course.date;
     const parts = dateString.toString().split('/');
     const dateObject = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
-    return dateObject<=this.nextWeek ? 'date' : null;
-  }  
+    return dateObject <= this.nextWeek ? 'date' : null;
+  }
 }
