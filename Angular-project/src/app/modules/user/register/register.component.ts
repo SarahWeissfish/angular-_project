@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
@@ -28,12 +28,6 @@ export class RegisterComponent {
     this.u.password=this.registerForm.controls["password"].value;
     this.u.address=this.registerForm.controls["address"].value;
     this.u.email=this.registerForm.controls["email"].value;
-    // this._act.paramMap.subscribe(p => {
-    //   if (p.has("lecturer")) {
-    //     this.u.lecturer=true;
-    //     alert("le")
-    //   }
-    // })
     this._usrService.register(this.u).subscribe({
       next:(res=>{
         if(res==undefined){

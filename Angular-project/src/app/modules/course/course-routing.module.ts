@@ -9,8 +9,6 @@ const COURSE_ROUTES: Route[] = [
   {path:"allCourses",component:AllCoursesComponent},
   {path:'addCourse/:id',component:AddCourseComponent},
   {path:'addCourse',component:AddCourseComponent},
- // {path:"",redirectTo:"login", pathMatch:"full"} ,
-  //{path:"**",title:"pageNotFound 404"}
 ];
 
 @NgModule({

@@ -6,13 +6,12 @@
                 <img *ngIf="category" src="{{category.iconRouting}}" [ngStyle]="{ 'width.px': 25, 'height.px': 25 }" />
             </div>
             <ng-container *ngIf="lecturer">
-                <!-- <label class="label">מרצה:</label> -->
-                <div >
-                    <mat-icon  class="label" style="padding-right: 18px; padding-top: 10px;">person</mat-icon>
+                <div>
+                    <mat-icon class="label" style="padding-right: 18px; padding-top: 10px;">person</mat-icon>
                     {{lecturer.name}}
-                    <br/>
-                    <mat-icon  class="label" style="padding-right: 18px; padding-top: 10px;">mail</mat-icon>
-                   {{lecturer.email}}
+                    <br />
+                    <mat-icon class="label" style="padding-right: 18px; padding-top: 10px;">mail</mat-icon>
+                    {{lecturer.email}}
                 </div>
             </ng-container>
             <br />
@@ -20,24 +19,16 @@
             <br />
             <div style="text-align: right ;padding: 8px;" class="label">
                 <mat-icon>{{+course.wayLearning|icon }}</mat-icon>
-                <div *ngIf="category" >
+                <div *ngIf="category">
                     <label>קטגוריה:</label>
                     {{category.name}}
                 </div>
-                <label >מס' שיעורים:</label>
+                <label>מס' שיעורים:</label>
                 {{course.countLesson}}
                 <br />
-                <!-- <label class="label">דרך לימוד:</label> -->
-                <!-- <div [ngSwitch]="course.wayLearning">
-                <p *ngSwitchCase="1">frontal </p>
-                <p *ngSwitchCase="2">ZOOM</p>
-            </div> -->
             </div>
-            
-            
             <label class="label" style="padding: 8px;">סיליבוס:</label>
             <div class="card" style="width: 18rem;">
-
                 <ul *ngFor="let i of course.sillibos" class="list-group list-group-flush sili">
                     <li class="list-group-item ">{{i}}</li>
                 </ul>

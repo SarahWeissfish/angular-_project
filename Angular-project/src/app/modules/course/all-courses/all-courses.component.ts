@@ -50,18 +50,6 @@ export class AllCoursesComponent {
     });
   }
   changeValue(i: number) {
-
-    // this._courseService.getCoursesFromServer().pipe(
-    //   map(data => data.filter(item => {
-    //     if (i == 3 || i == +item.wayLearning) {
-    //       return true;
-    //     }
-    //     return false;
-    //   }))
-    // ).subscribe(data => {
-    //   this.courses = data;
-    //   this.courses2 = data;
-    // })
     this.filter2=i;
     this.filter()
   }

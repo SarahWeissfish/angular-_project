@@ -6,12 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { LogOutComponent } from './log-out/log-out.component';
 const USER_ROUTES: Route[] = [
   {path:"login",component:LoginComponent},
-  // {path:"register/:lecturer",component:RegisterComponent},
   {path:"register",component:RegisterComponent},
   {path:"logOut",component:LogOutComponent},
-
- // {path:"",redirectTo:"login", pathMatch:"full"} ,
-  //{path:"**",title:"pageNotFound 404"}
 ];
 
 @NgModule({

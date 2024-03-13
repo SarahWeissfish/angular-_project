@@ -1,8 +1,5 @@
 <div *ngIf="user" style="display: flex;justify-content: space-evenly;direction: rtl;">
     <form [formGroup]="courseForm">
-        <!-- <ng-container *ngIf="courseForm.get('courseName').invalid && courseForm.get('courseName').pristine"
-            class="alert alert-danger">
-        </ng-container> -->
         <div class="form-floating mb-3">
             <input type="text" placeholder="הכנס שם קורס" id="floatingInput" class="form-control" style="width: 18rem;"
                 formControlName="courseName">
@@ -55,7 +52,7 @@
             <div *ngFor="let silliboIndex of controls; let i = index">
 
                 <div class="form-floating mb-3 ">
-                  *<input [formControl]="getSilliboControl(i)" class="sili" type="text" placeholder="{{ i + 1 }}"
+                    *<input [formControl]="getSilliboControl(i)" class="sili" type="text" placeholder="{{ i + 1 }}"
                         id="floatingInput" (input)="onSilliboChange(i, $event)">
                 </div>
             </div>
